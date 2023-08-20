@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Pizza extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['nombre', 'precio'];
+
+    // Resto del código del modelo...
 }
