@@ -4,6 +4,12 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+        @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
             <div class="card">
                 <div class="card-header">Pizza Menu</div>
 
@@ -22,11 +28,15 @@
                             @foreach($pizzas as $pizza)
                                 <tr>
                                     <td>{{ $pizza->nombre }}</td>
-                                    <td>${{ $pizza->price }}</td>
+                                    <td>${{ $pizza->precio }}</td>
                                     <td>
-                                        <a href="{{ route('pizzas.show', $pizza->id) }}" class="btn btn-info btn-sm">View</a>
-                                        <a href="{{ route('pizzas.edit', $pizza->id) }}" class="btn btn-primary btn-sm">Edit</a>
-                                        <!-- Add a delete button and form -->
+                                        <a href="{{ route('pizzas.show', $pizza->id) }}" class="btn btn-info btn-sm mr-1">View</a>
+                                        <a href="{{ route('pizzas.edit', $pizza->id) }}" class="btn btn-primary btn-sm mr-1">Edit</a>
+                                        <form action="{{ route('pizzas.destroy', $pizza->id) }}" method="POST" class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
