@@ -33,19 +33,24 @@ This is a sample web application that allows users to manage a pizza menu. It en
    git clone https://github.com/AngelCampa/pizzeria.git
 
 2. Navigate to the project directory:
+    ```bash
     cd pizzeria
 
 3. Install dependencies using Composer:
+    ```bash
     composer install
 
 4. Copy the .env.example file and rename it to .env. Then, set up your database credentials in the .env file.
 
 5. Generate a new application key:
+    ```bash
     php artisan key:generate
 
 
 6. Run migrations to create database tables:
+    ```bash
     php artisan migrate
 
 7. Start the development server:
+    ```bash
     php artisan serve
